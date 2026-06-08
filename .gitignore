@@ -1,0 +1,9 @@
+# Ignorar dependencias de Node
+backend/node_modules/
+frontend/node_modules/
+
+# Ignorar variables de entorno reales
+.env
+
+# NO ignorar la carpeta dist (El laboratorio la necesita)
+!frontend/dist/

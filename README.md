@@ -11,13 +11,13 @@ Este repositorio contiene el código fuente y la orquestación mediante contened
 
 1. **Clonar el repositorio:**
 ```bash
-git clone [URL_DE_TU_REPOSITORIO]
-cd [NOMBRE_DE_LA_CARPETA]
+git clone https://github.com/gonchi2332/six_seven
+cd six_seven
 ```
 
 2. **Configuración de Variables de Entorno:**
    Hemos provisto un archivo `.env.example` en la raíz para referencia. 
-   **Nota:** Se ha enviado un archivo `.env` funcional por correo electrónico a `adm.computo.umss@gmail.com` con las credenciales activas de los servicios de IA y SMTP. Por favor, coloque ese archivo `.env` en la raíz del proyecto.
+   **Nota:** Se ha enviado un archivo `.env` funcional por correo electrónico a quien corresponda con las credenciales activas de los servicios de IA y SMTP. Por favor, coloque ese archivo `.env` en la raíz del proyecto o copie y pegue en el `.env.example` y después renómbrelo.
 
 3. **Ejecutar el sistema:**
    Levante todos los servicios en segundo plano y fuerce la construcción de las imágenes ejecutando:

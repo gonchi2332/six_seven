@@ -1,0 +1,113 @@
+BEGIN;
+
+-- ROLES
+INSERT INTO "role" (id, name) VALUES
+(1, 'Administrador'),
+(2, 'Usuario');
+
+-- INTERFACES
+INSERT INTO "interface" (id, name) VALUES
+(1, 'Perfil'),
+(2, 'Habilidad blanda'),
+(3, 'Habilidad tecnica'),
+(4, 'Experiencia laboral'),
+(5, 'Formacion academica'),
+(6, 'Proyecto personal'),
+(7, 'Certificado');
+
+-- EXTERNAL PLATFORMS
+INSERT INTO "external_platform" (id, name) VALUES
+(1, 'GitHub'),
+(2, 'LinkedIn');
+
+-- ACADEMIC DEGREES
+INSERT INTO "academic_degree" (id, name) VALUES
+(1, 'Bachillerato'),
+(2, 'Tecnico Medio'),
+(3, 'Tecnico Superior'),
+(4, 'Licenciatura'),
+(6, 'Maestria'),
+(7, 'Doctorado'),
+(8, 'Postdoctorado');
+
+-- RESIDENCE COUNTRIES
+INSERT INTO "residence_country" (id, name) VALUES
+(1,  'Bolivia'),
+(2,  'Argentina'),
+(3,  'Perú'),
+(4,  'China'),
+(5,  'Camerún'),
+(6,  'Anguilla'),
+(7,  'Armenia'),
+(8,  'Antártida'),
+(9,  'Bosnia y Herzegovina'),
+(10, 'Myanmar'),
+(11, 'Argelia');
+
+-- RESIDENCE CITIES
+INSERT INTO "residence_city" (id, name) VALUES
+(1,  'cbba'),
+(2,  'Cochabamba'),
+(3,  'Santo'),
+(4,  'Blanco Galindo'),
+(5,  'Pakistan'),
+(6,  'Cercado');
+
+-- SKILLS
+INSERT INTO "skill" (id, name, type, canon_name) VALUES
+(1,   'Trabajo en equipo',    'soft', 'trabajo en equipo'),
+(2,   'Comunicación',         'soft', 'comunicación'),
+(3,   'C++',                  'hard', 'c++'),
+(4,   'Python',               'hard', 'python'),
+(5,   'Node.js',              'hard', 'node.js'),
+(6,   'SQL',                  'hard', 'sql'),
+(7,   'Git',                  'hard', 'git'),
+(27,  'HTML',                 'hard', 'html'),
+(28,  'React',                'hard', 'react'),
+(62,  'Javascript',           'hard', 'javascript'),
+(79,  'Liderazgo',            'soft', 'liderazgo'),
+(90,  'Java',                 'hard', 'java'),
+(91,  'Flutter',              'hard', 'flutter'),
+(93,  'Angular',              'hard', 'angular'),
+(94,  'Redis',                'hard', 'redis'),
+(95,  'Express',              'hard', 'express'),
+(96,  'Figma',                'hard', 'figma'),
+(97,  'Photoshop',            'hard', 'photoshop'),
+(100, 'Mongodb',              'hard', 'mongodb'),
+(103, 'Laravel',              'hard', 'laravel'),
+(105, 'Kubernetes',           'hard', 'kubernetes'),
+(107, 'Typescript',           'hard', 'typescript'),
+(108, 'Tailwind',             'hard', 'tailwind'),
+(115, 'Calculo',              'hard', 'calculo'),
+(116, 'Fortran',              'hard', 'fortran'),
+(117, 'Rust',                 'hard', 'rust'),
+(118, 'Postgress',            'hard', 'postgress'),
+(119, 'Analisis de problemas','soft', 'analisis de problemas'),
+(121, 'Rubi',                 'hard', 'rubi'),
+(122, 'Empatia',              'soft', 'empatia'),
+(123, 'C#',                   'hard', 'c#'),
+(124, 'Puntualidad',          'soft', 'puntualidad'),
+(125, 'Matlab',               'hard', 'matlab'),
+(126, 'Creatividad',          'soft', 'creatividad'),
+(127, 'Jakarta',              'hard', 'jakarta'),
+(128, 'Kotlin',               'hard', 'kotlin'),
+(129, 'Jupyter',              'hard', 'jupyter'),
+(130, 'Delphi',               'hard', 'delphi'),
+(131, 'Linux',                'hard', 'linux'),
+(132, 'Resiliencia',          'soft', 'resiliencia'),
+(133, 'Eclipse',              'hard', 'eclipse');
+
+INSERT INTO "profile_picture" (id, profile_picture) 
+VALUES (1, '\x');
+
+-- Sync sequences after explicit id inserts
+SELECT setval(pg_get_serial_sequence('"role"',             'id'), (SELECT MAX(id) FROM "role"));
+SELECT setval(pg_get_serial_sequence('"interface"',        'id'), (SELECT MAX(id) FROM "interface"));
+SELECT setval(pg_get_serial_sequence('"external_platform"','id'), (SELECT MAX(id) FROM "external_platform"));
+SELECT setval(pg_get_serial_sequence('"academic_degree"',  'id'), (SELECT MAX(id) FROM "academic_degree"));
+SELECT setval(pg_get_serial_sequence('"residence_country"','id'), (SELECT MAX(id) FROM "residence_country"));
+SELECT setval(pg_get_serial_sequence('"residence_city"',   'id'), (SELECT MAX(id) FROM "residence_city"));
+SELECT setval(pg_get_serial_sequence('"skill"',            'id'), (SELECT MAX(id) FROM "skill"));
+SELECT setval(pg_get_serial_sequence('"profile_picture"', 'id'), (SELECT MAX(id) FROM "profile_picture"));
+
+COMMIT;
