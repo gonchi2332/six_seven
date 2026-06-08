@@ -27,3 +27,8 @@ sudo docker-compose up -d --build
 
 ## 📦 Notas Adicionales sobre la Base de Datos
 No es necesario ejecutar migraciones manuales. El contenedor de PostgreSQL leerá automáticamente los archivos alojados en `./database/` e inicializará el esquema (`01-schema.sql`) y poblará los catálogos base (`02-seed.sql`) durante su primer arranque.
+
+## 🌐 Acceso a la Aplicación
+Una vez que los contenedores reporten el estado "Started", los servicios estarán disponibles localmente en las siguientes direcciones:
+* **Frontend (Interfaz de Usuario):** http://localhost (o http://127.0.0.1). Servido estáticamente por Nginx en el puerto 80.
+* **Backend (API RESTful):** http://localhost:3000. Expuesto directamente por Node.js/Express para recibir peticiones.
