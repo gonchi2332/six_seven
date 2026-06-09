@@ -1,7 +1,7 @@
 FROM node:20-alpine
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --include=dev
 COPY . .
 RUN npm run build
 RUN mkdir -p dist/helpers && cp src/helpers/mail.html dist/helpers/mail.html
