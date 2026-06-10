@@ -8,7 +8,7 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}
     ports:
-      - "5432:5432"
+      - "5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./database/01-schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
@@ -46,7 +46,7 @@ services:
       HUGGING_FACE_API_KEY: ${HUGGING_FACE_API_KEY}
       HUGGING_FACE_AI_MODEL: ${HUGGING_FACE_AI_MODEL}
     ports:
-      - "3000:3000"
+      - "3000"
     depends_on:
       db:
         condition: service_healthy
@@ -56,7 +56,7 @@ services:
     container_name: sixseven_frontend
     restart: unless-stopped
     ports:
-      - "80:80"
+      - "80"
     depends_on:
       - backend
 
